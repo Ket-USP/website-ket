@@ -1,8 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import KetLogoTitle from "../../public/images/KetLogoTitle.png"
+import { LanguageSelector } from "./LanguageSelector";
 
 export function Header() {
   const location = useLocation();
+  const { t } = useTranslation("common");
 
   return (
     <header className="backdrop-blur-md fixed w-full top-0 z-50">
@@ -16,26 +19,35 @@ export function Header() {
           />
         </NavLink>
         <NavLink href="/projetos" isActive={location.pathname === "/projetos"}>
-          Projetos
+          {t("navigation.projects")}
         </NavLink>
         <NavLink
           href="/palestras"
           isActive={location.pathname.startsWith("/palestras")}
         >
-          Palestras
+          {t("navigation.talks")}
         </NavLink>
         <NavLink
           href="/aulas"
           isActive={location.pathname.startsWith("/aulas")}
         >
-          Aulas
+          {t("navigation.classes")}
         </NavLink>
         <NavLink href="/sobre" isActive={location.pathname === "/sobre"}>
-          Sobre
+          {t("navigation.about")}
         </NavLink>
         <NavLink href="/contato" isActive={location.pathname === "/contato"}>
-          Contato
+          {t("navigation.contact")}
         </NavLink>
+        <LanguageSelector />
+
+      </div>
+
+      <div className="flex h-[70px] items-center justify-between bg-black/80 px-4 md:hidden">
+        <Link to="/" aria-label="KET">
+          <img src={KetLogoTitle} alt="KET USP Logo" className="brand-logo h-[54px] w-auto" />
+        </Link>
+        <LanguageSelector />
       </div>
 
       {/* Ações (tema, idioma e menu mobile) */}
@@ -102,7 +114,7 @@ function NavLink({href, children, isActive, className = ""}: {href: string; chil
   return (
     <Link
       to={href}
-      className={`h-[70px] w-full flex items-center justify-center border-[1px]
+      className={`h-[70px] min-w-0 flex-[2] flex items-center justify-center border-[1px]
         text-2xl font-semibold
         ${isActive ? "bg-black" : ""} ${className}`}
     >

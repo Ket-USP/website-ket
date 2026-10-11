@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
+
 const About = () => {
+    const { t } = useTranslation();
     return (
         <>
-            <h1>Sobre</h1>
+            <h1>{t("navigation.about")}</h1>
 
         </>
     )

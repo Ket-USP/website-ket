@@ -40,7 +40,6 @@ export function Layout({ children }: LayoutRouteProps) {
   return (
     <div className={`site-experience ${intro ? "is-intro" : "is-ready"}`}>
       <div className="wave-scene" aria-hidden="true"><WaveBackground /></div>
-      {intro && <button className="intro-skip" onClick={() => setIntro(false)}>Pular abertura</button>}
       <div className="site-content pr-[14px]" inert={intro} aria-hidden={intro}>
       <div className="flex min-h-screen flex-col">
         <Header />
