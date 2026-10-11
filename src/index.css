@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Bauer Bodoni Std';
+  src: url('path-to-your-font/BauerBodoniStd-Roman.woff') format('woff'),
+       url('path-to-your-font/BauerBodoniStd-Roman.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: "Bauer Bodoni", "Bodoni", serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: #ffffff;
+
+  --amarelo-claro: #fcffa4;
+  --amarelo: #f7d13d;
+  --laranja-claro: #fb9b06;
+  --laranja: #ed6925;
+  --terracota: #cf4446;
+  --rosa: #a52c60;
+  --magenta: #781c6d;
+  --roxo: #4a0c6b;
+  --azul: #1B0C41;
+  --preto: #000004;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: #ffffff;
+  background: radial-gradient(
+    circle at 70% 0%,
+    var(--preto) 60%,
+    var(--azul) 68%,
+    var(--roxo) 73%,
+    var(--magenta) 79%,
+    var(--rosa) 84%,
+    var(--terracota) 88%,
+    var(--laranja) 91%,
+    var(--laranja-claro) 94%,
+    var(--amarelo) 97%,
+    var(--amarelo-claro) 100%
+  );
+  background-attachment: fixed;
+}
+
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.page-scrollbar {
+  position: fixed;
+  inset: 4px 2px 4px auto;
+  width: 10px;
+  z-index: 100;
+  border-radius: 999px;
+  background: var(--preto);
+  touch-action: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.page-scrollbar:focus-visible {
+  outline: 2px solid var(--amarelo-claro);
+  outline-offset: 1px;
+}
+
+.page-scrollbar-thumb {
+  width: 100%;
+  border-radius: inherit;
+  cursor: grab;
+  background: linear-gradient(
+    to bottom,
+    var(--azul),
+    var(--roxo),
+    var(--magenta),
+    var(--rosa),
+    var(--terracota),
+    var(--laranja),
+    var(--laranja-claro),
+    var(--amarelo),
+    var(--amarelo-claro)
+  );
+}
+
+.page-scrollbar:active,
+.page-scrollbar:active .page-scrollbar-thumb {
+  cursor: grabbing;
+}
