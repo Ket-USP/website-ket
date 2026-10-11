@@ -8,11 +8,11 @@ export function Header() {
     <header className="backdrop-blur-md fixed w-full top-0 z-50">
       {/* Menu desktop */}
       <div className="hidden md:flex items-center justify-evenly">
-        <NavLink href="/" isActive={location.pathname === "/"}>
+        <NavLink href="/" isActive={location.pathname === "/"} className="brand-link">
           <img
             src={KetLogoTitle}
             alt="KET USP Logo"
-            className="mt-2 h-auto w-full max-w-[150px] object-contain"
+            className="brand-logo h-auto w-full max-w-[150px] object-contain"
           />
         </NavLink>
         <NavLink href="/projetos" isActive={location.pathname === "/projetos"}>
@@ -98,13 +98,13 @@ export function Header() {
   );
 }
 
-function NavLink({href, children, isActive,}: {href: string; children: React.ReactNode; isActive: boolean;}) {
+function NavLink({href, children, isActive, className = ""}: {href: string; children: React.ReactNode; isActive: boolean; className?: string;}) {
   return (
     <Link
       to={href}
       className={`h-[70px] w-full flex items-center justify-center border-[1px]
         text-2xl font-semibold
-        ${isActive ? "bg-black" : ""}`}
+        ${isActive ? "bg-black" : ""} ${className}`}
     >
       {children}
     </Link>
