@@ -43,7 +43,7 @@ export function Layout({ children }: LayoutRouteProps) {
       <div className="site-content pr-[14px]" inert={intro} aria-hidden={intro}>
       <div className="flex min-h-screen flex-col">
         <Header />
-        <main id="page-content" className="flex-1 pt-20">{children}</main>
+        <main id="page-content" className="min-h-screen min-h-dvh shrink-0 pt-20">{children}</main>
         <Footer />
       </div>
       <Slider />
